@@ -24,7 +24,7 @@ public class CharacterStats : MonoBehaviour
                 vida = 100;
                 golpe = 25;
                 powerUp = 0;
-                municion = 10;
+                municion = 12;
                 speed = 8.5f;
                 jumpForce = 6f;
                 break;
@@ -34,7 +34,7 @@ public class CharacterStats : MonoBehaviour
                 powerUp = 0;
                 municion = 1000;
                 speed = 0.6f;
-                jumpForce = 6f;
+                jumpForce = 3f;
                 break;
             case "Monster":
                 vida = 1000;

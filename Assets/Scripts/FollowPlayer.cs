@@ -112,39 +112,46 @@ public class FollowPlayer : MonoBehaviour
     void Detener()
     {
         float aux;
-        if(Physics2D.Raycast(this.transform.position, dPlayer, 17f, enemyMask))
+        if(Physics2D.Raycast(this.transform.position, dPlayer, 13f, enemyMask))
         {
             //**    True para que le dispare, false para que lo persiga **//
 
             // Inteligencia basica de los enemigos para colocarse un poco mejor para disparar al player
-            if(posPlayer.position.y > this.transform.position.y)
+            if (!(Physics2D.Raycast(pies.transform.position, Vector2.right, 2.5f, ground)) || !(Physics2D.Raycast(pies.transform.position, Vector2.left, 2.5f, ground)))
             {
-                aux = 2.3f;
-                if ((posPlayer.position.y) <= (this.transform.position.y + aux))
+                if (posPlayer.position.y > this.transform.position.y)
                 {
-                    cercaPlayer = true;
+                    aux = 2f;
+                    if ((posPlayer.position.y) <= (this.transform.position.y + aux))
+                    {
+                        cercaPlayer = true;
+                    }
+                    else
+                    {
+                        cercaPlayer = false;
+                    }
+                }
+                else if (posPlayer.position.y < this.transform.position.y)
+                {
+                    aux = -2f;
+                    if (posPlayer.position.y >= (this.transform.position.y + aux))
+                    {
+                        cercaPlayer = true;
+                    }
+                    else
+                    {
+                        cercaPlayer = false;
+                    }
                 }
                 else
                 {
-                    cercaPlayer = false;
-                }
-            }
-            else if (posPlayer.position.y < this.transform.position.y)
-            {
-                aux = -2.3f;
-                if (posPlayer.position.y >= (this.transform.position.y + aux))
-                {
+                    aux = 0;
                     cercaPlayer = true;
-                }
-                else
-                {
-                    cercaPlayer = false;
                 }
             }
             else
             {
-                aux = 0;
-                cercaPlayer = true;
+                cercaPlayer = false;
             }
             
         }
@@ -164,7 +171,7 @@ public class FollowPlayer : MonoBehaviour
             {
                 Instantiate(bullet, canon.transform);
                 humo.Play();
-                SelectAudio(0, 0.5f);
+                SelectAudio(0, 0.4f);
             }
         } 
     }
@@ -203,11 +210,7 @@ public class FollowPlayer : MonoBehaviour
         if (IsTochingTheGround())
         {
             // Si hay algo delante, salta
-            if (!GetComponent<SpriteRenderer>().flipX && Physics2D.Raycast(pies.transform.position, Vector2.left, 0.45f, ground))
-            {
-                rigidEnemy.AddForce(Vector2.up * enemyStats.getJumpForce(), ForceMode2D.Impulse);
-            }
-            else if (GetComponent<SpriteRenderer>().flipX && Physics2D.Raycast(pies.transform.position, Vector2.right, 0.45f, ground))
+            if (Physics2D.Raycast(pies.transform.position, Vector2.right, 1f, ground) || Physics2D.Raycast(pies.transform.position, Vector2.left, 1f, ground))
             {
                 rigidEnemy.AddForce(Vector2.up * enemyStats.getJumpForce(), ForceMode2D.Impulse);
             }
@@ -221,7 +224,7 @@ public class FollowPlayer : MonoBehaviour
 
     bool IsTochingTheGround()
     {
-        if (Physics2D.Raycast(pies.transform.position, Vector2.down, 0.5f, ground))
+        if (Physics2D.Raycast(pies.transform.position, Vector2.down, 1f, ground))
         {
             return true;
         }

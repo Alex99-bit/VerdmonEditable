@@ -11,7 +11,7 @@ public class BulletMonster : MonoBehaviour
     /* Identifica si el jugador esta a la izq o derecha del enemigo
        true = derecha, false = izquierda */
     Transform playerPos;
-    int posx,posy;
+    float posx,posy;
 
     // Start is called before the first frame update
     void Start()

@@ -82,15 +82,15 @@ public class PlayerMecha : MonoBehaviour
                 Invoke("OcultarMensaje", 6f);
             }
 
-            if (recover && statsPlayer.getVida() <= 100)
+            if (recover && statsPlayer.getVida() <= 70)
             {
                 // Recarga la vida poco a poco en caso de no recivir daño
                 statsPlayer.setVida(statsPlayer.getVida() + 0.5f);
                 barVida.value = statsPlayer.getVida();
 
-                if(statsPlayer.getVida() > 100)
+                if(statsPlayer.getVida() > 70)
                 {
-                    statsPlayer.setVida(100);
+                    statsPlayer.setVida(70);
                     barVida.value = statsPlayer.getVida();
                 }
             }
@@ -191,7 +191,7 @@ public class PlayerMecha : MonoBehaviour
         if (recarga)
         {
             // Si el numero es entero y esta recargando, suena la recarga
-            audioManager.SelectAudio(2, 0.35f);
+            audioManager.SelectAudio(2, 0.30f);
         }
     }
 
@@ -210,10 +210,10 @@ public class PlayerMecha : MonoBehaviour
             statsPlayer.setMunicion(statsPlayer.getMunicion() + 0.07f);
         }
 
-        if (statsPlayer.getMunicion() >= 10)
+        if (statsPlayer.getMunicion() >= 12)
         {
             recarga = false;
-            statsPlayer.setMunicion(10);
+            statsPlayer.setMunicion(12);
             //audioManager.SelectAudio(2, 0.5f);
         }
 
@@ -223,7 +223,7 @@ public class PlayerMecha : MonoBehaviour
         }
 
         barMunicion.value = (int)statsPlayer.getMunicion();
-        municion.text = (int)statsPlayer.getMunicion()+ " / 10";
+        municion.text = (int)statsPlayer.getMunicion()+ " / 12";
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -274,6 +274,16 @@ public class PlayerMecha : MonoBehaviour
             points++;
             botellas.text = "Botellas: " + points + " / 10";
             Destroy(collision.gameObject);
+            if(statsPlayer.getVida() < 100) // Recarga 20 pts de vida y activa la regeneracion
+            {
+                recover = true;
+                statsPlayer.setVida(statsPlayer.getVida() + 20);
+                if(statsPlayer.getVida() > 100)
+                {
+                    statsPlayer.setVida(100);
+                }
+                barVida.value = statsPlayer.getVida();
+            }
             powerParticle.Play();
         }
 
@@ -330,7 +340,7 @@ public class PlayerMecha : MonoBehaviour
         pwup = 0;
         vel.SetActive(false);
         salto.SetActive(false);
-        municion.text = statsPlayer.getMunicion() + " / 10";
+        municion.text = statsPlayer.getMunicion() + " / 12";
         barMunicion.value = statsPlayer.getMunicion();
         statsPlayer.setVida(100);
         barVida.value = statsPlayer.getVida();
@@ -387,12 +397,13 @@ public class PlayerMecha : MonoBehaviour
                 statsPlayer.setMunicion(0);
             }
             barMunicion.value = (int)statsPlayer.getMunicion();
-            municion.text = (int)statsPlayer.getMunicion() + " / 10";
-            audioManager.SelectAudio(1, 0.6f);
+            municion.text = (int)statsPlayer.getMunicion() + " / 12";
+            audioManager.SelectAudio(1, 0.4f);
         }
         else if(Input.GetButtonDown("Fire1") && !puedeDisparar)
         {
-            audioManager.SelectAudio(0, 0.5f);
+            // Si no tiene balas, suena el gatillazo
+            audioManager.SelectAudio(0, 0.4f);
         }
         else
         {

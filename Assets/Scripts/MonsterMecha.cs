@@ -16,6 +16,8 @@ public class MonsterMecha : MonoBehaviour
     bool cercaPlayer, disparar, perseguir;
     public ParticleSystem sangre;
     public Slider barVida;
+    bool fase2;
+    float cooldownFase2;
 
     const string IS_ALIVE = "isAlive", IS_RUNNING = "isRunning";
 
@@ -29,6 +31,9 @@ public class MonsterMecha : MonoBehaviour
         barVida = GameObject.Find("VidaBoss").GetComponent<Slider>();
         StartCoroutine(Shooting());
         perseguir = false;
+        fase2 = false;
+        disparar = false;
+        cooldownFase2 = 0;
     }
 
     // Update is called once per frame
@@ -49,6 +54,12 @@ public class MonsterMecha : MonoBehaviour
             {
                 Detener();
             }
+
+            if(cooldownFase2 <= 14)
+                cooldownFase2 += Time.deltaTime;
+
+            if(!fase2 && cooldownFase2 == 13f)
+                fase2 = true;
 
             if (monstStats.getVida() <= 0)
             {
@@ -80,18 +91,18 @@ public class MonsterMecha : MonoBehaviour
 
     void SeguirPlayer()
     {
-        if (!cercaPlayer)
+        if (fase2)
         {
             // Si no esta demaciado cerca, el enemigo persigue al player
             transform.Translate(dPlayer * Time.deltaTime * monstStats.getSpeed());
             animator.SetBool(IS_RUNNING, true);
-            disparar = false;
+            //disparar = false;
         }
-        else if(cercaPlayer)
+        else
         {
             // Si esta lo suficioentemente serca, se detiene y dispara
             transform.Translate(dPlayer * Time.deltaTime * (monstStats.getSpeed() - 0.3f));
-            animator.SetBool(IS_RUNNING, false);
+            animator.SetBool(IS_RUNNING, true);
             disparar = true;
             // Sonido de disparo
 
@@ -112,7 +123,7 @@ public class MonsterMecha : MonoBehaviour
 
     void Detener()
     {
-        if (Physics2D.Raycast(this.transform.position, dPlayer, 22f, enemyMask))
+        if (Physics2D.Raycast(this.transform.position, dPlayer, 1f, enemyMask))
         {
             // Si el enemigo esta a ciertos metros del jugador, se detiene y dispara
             cercaPlayer = true;
@@ -140,7 +151,7 @@ public class MonsterMecha : MonoBehaviour
     {
         // Retorna un true o false si esta cerca del jugador o no
         //Debug.DrawRay(transform.position, dPlayer, Color.red);
-        if (Physics2D.Raycast(this.transform.position, dPlayer, 25f, enemyMask))
+        if (Physics2D.Raycast(this.transform.position, dPlayer, 15f, enemyMask))
         {
             perseguir = true; // Vio al jugador
             //expandirCamara = true;
@@ -169,11 +180,7 @@ public class MonsterMecha : MonoBehaviour
         if (IsTochingTheGround())
         {
             // Si hay algo delante, salta
-            if (!GetComponent<SpriteRenderer>().flipX && (Physics2D.Raycast(pies.transform.position, Vector2.left, 1f, ground)))
-            {
-                rigidEnemy.AddForce(Vector2.up * monstStats.getJumpForce(), ForceMode2D.Impulse);
-            }
-            else if (GetComponent<SpriteRenderer>().flipX && (Physics2D.Raycast(pies.transform.position, Vector2.right, 1f, ground)))
+            if (Physics2D.Raycast(pies.transform.position, Vector2.left, 2.5f, ground) || Physics2D.Raycast(pies.transform.position, Vector2.right, 2.5f, ground))
             {
                 rigidEnemy.AddForce(Vector2.up * monstStats.getJumpForce(), ForceMode2D.Impulse);
             }
@@ -182,7 +189,7 @@ public class MonsterMecha : MonoBehaviour
 
     bool IsTochingTheGround()
     {
-        if (Physics2D.Raycast(pies.transform.position, Vector2.down, 0.5f, ground))
+        if (Physics2D.Raycast(pies.transform.position, Vector2.down, 2f, ground))
         {
             return true;
         }
