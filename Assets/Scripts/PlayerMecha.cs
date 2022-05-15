@@ -165,6 +165,7 @@ public class PlayerMecha : MonoBehaviour
             /***/
             if (jump)
             {
+                // Hace que el personaje se eleve aplicando la fuerza de salto
                 rigidPlayer.AddForce(Vector2.up * statsPlayer.getJumpForce(), ForceMode2D.Impulse);
                 jump = false;
             }
@@ -181,14 +182,16 @@ public class PlayerMecha : MonoBehaviour
         }
     }
 
+    // Sirve para pasar a otras clases el estado de las botellas, por medio de una variable estatica 
     public int GetPoint()
     {
         return points;
     }
 
+    // Este metodo se manda a llamar en una slider event
     public void SonidoRecarga()
     {
-        if (recarga)
+        if (recarga) // Solo se produce si recarga esta activo (esta recargando)
         {
             // Si el numero es entero y esta recargando, suena la recarga
             audioManager.SelectAudio(2, 0.30f);
@@ -200,8 +203,7 @@ public class PlayerMecha : MonoBehaviour
 
         if (vel.active)
         {
-            /*recarga = false;
-            statsPlayer.setMunicion(10);*/
+            // En caso de que el power up este activo, recarga más rapido
             statsPlayer.setMunicion(statsPlayer.getMunicion() + 0.16f);
         }
         else
@@ -289,7 +291,7 @@ public class PlayerMecha : MonoBehaviour
 
         if (collision.collider.CompareTag("BulletEnemy"))
         {
-            // Hacer logica para las bolas de acido del monstruo
+            // Si toca o colisona con una bola de acido, le baja vida
             recover = false;
             // Le resta vida al jugador desde el manager de personajes
             statsPlayer.setVida(statsPlayer.getVida() - 25f);
@@ -299,7 +301,7 @@ public class PlayerMecha : MonoBehaviour
 
         if (collision.collider.CompareTag("Monster"))
         {
-            // Hacer logica para las bolas de acido del monstruo
+            // Si toca al monstruo le baja vida
             recover = false;
             // Le resta vida al jugador desde el manager de personajes
             statsPlayer.setVida(statsPlayer.getVida() - 35.5f);
@@ -311,6 +313,7 @@ public class PlayerMecha : MonoBehaviour
     bool NoTocaPared()
     {
         // Funcion que checa si esta o no colisionando con una pared para frenar la animacion
+        // en caso de que retorne false, es que esta tocando una pared (negacion de no toca pared)
         if(Physics2D.Raycast(this.transform.position, Vector2.left, 0.5f, playerMask))
         {
             return false;
@@ -327,7 +330,7 @@ public class PlayerMecha : MonoBehaviour
 
     void Revive()
     {
-        // Revive al personaje
+        // Revive al personaje con sus atributos 
         bossbar.SetActive(false);
         points = 0;
         botellas.text = "Botellas: " + points + " / 10";
@@ -353,7 +356,7 @@ public class PlayerMecha : MonoBehaviour
         
         if (Input.GetButtonDown("Jump") && IsTouchingTheGround())
         {
-            // Hace que el personaje se eleve aplicando la fuerza de salto
+            // Manda la señal de que salta, para que se ejecute en un fixedupdate y no se bugue 
             jump = true;
         }
         
@@ -410,6 +413,8 @@ public class PlayerMecha : MonoBehaviour
             animator.SetBool(IS_SHOOTING, false);
         }
 
+        // Como las balas son float, puede ser que quede con un numero irracional y le sirva como una bala,
+        // por ende se comprueba si el valor es menor a 1 para clasificarla como cero y no puede disparar
         if (statsPlayer.getMunicion() < 1)
         {
             puedeDisparar = false;
@@ -437,12 +442,14 @@ public class PlayerMecha : MonoBehaviour
         }
     }
 
+    // Funcion que sirve para ocultar el mensaje, esta es llamada cada que se enciende un mensaje y tarda cierto tiempo en ejecutarse
     public void OcultarMensaje()
     {
         mensaje.SetActive(false);
         muestraMensaje = false;
     }
 
+    // Funcion o metodo que se utiliza para generar un mensaje
     public void MostrarMensaje(string mensaje)
     {
         this.mensaje.SetActive(true);
@@ -451,6 +458,7 @@ public class PlayerMecha : MonoBehaviour
         textMensaje.text = mensaje;
     }
 
+    //**// Metodos GET y SET para retornar a otras clases si el jugador esta vivo o muerto
     public bool GetIsAlive()
     {
         return isAlive;
@@ -460,6 +468,7 @@ public class PlayerMecha : MonoBehaviour
     {
         isAlive = alive;
     }
+    //**//
 
     public void setHumo()
     {

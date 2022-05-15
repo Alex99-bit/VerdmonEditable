@@ -39,6 +39,7 @@ public class MonsterMecha : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // Solo si esta en la pantalla de juego se ejecuta estos bloques
         if (GameManager.instance.currentGameState == GameState.inGame)
         {
             // Sigue la posision del player
@@ -50,16 +51,19 @@ public class MonsterMecha : MonoBehaviour
             Debug.DrawRay(transform.position, dPlayer, Color.red);
             PlayerCerca();
 
+            // Verifica si debe o no perseguir al player, solo si esta lo suficientemente cerca
             if (perseguir)
             {
                 Detener();
             }
 
+            //**// Tiempo de espera para que el jefe comience a lanzar proyectiles
             if(cooldownFase2 <= 14)
                 cooldownFase2 += Time.deltaTime;
 
-            if(!fase2 && cooldownFase2 == 13f)
+            if(!fase2 && cooldownFase2 >= 13f)
                 fase2 = true;
+            //**//
 
             if (monstStats.getVida() <= 0)
             {
@@ -140,7 +144,7 @@ public class MonsterMecha : MonoBehaviour
         {
             // Rutina para que el enemigo dispare
             yield return new WaitForSeconds(3f);
-            if (disparar)
+            if (disparar && fase2)
             {
                 Instantiate(bullet, canon.transform);
             }

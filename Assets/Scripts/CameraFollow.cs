@@ -32,7 +32,7 @@ public class CameraFollow : MonoBehaviour
             //propiedades.sensorSize = 
             // Capta si hay enemigos cerca, en caso de que si, expande la camara para dar
             // más oportunidad de ver los enemigos (entra en modo ataque)
-            if (camara.GetExpandirCamara())
+            /*if (camara.GetExpandirCamara())
             {
                 // Expandir la camara
                 //propiedades.sensorSize
@@ -40,7 +40,7 @@ public class CameraFollow : MonoBehaviour
             else
             {
                 // Regresarla a la posicion normal
-            }
+            }*/
             SelectAudio();
         }
         else
@@ -54,10 +54,11 @@ public class CameraFollow : MonoBehaviour
         if (!controlAudio.isPlaying)
         {
             indice = Random.Range(0, audios.Length);
-            controlAudio.PlayOneShot(audios[indice], 0.65f);
+            controlAudio.PlayOneShot(audios[indice], 0.82f);
         }
     }
 
+    // No se usa aun este metodo
     public void ResetCameraPosition()
     {
         MoveCamera(false);
