@@ -82,7 +82,7 @@ public class PlayerMecha : MonoBehaviour
                 Invoke("OcultarMensaje", 6f);
             }
 
-            if (recover && statsPlayer.getVida() <= 70)
+            if (recover && statsPlayer.getVida() <= 72)
             {
                 // Recarga la vida poco a poco en caso de no recivir daño
                 statsPlayer.setVida(statsPlayer.getVida() + 0.5f);
@@ -194,7 +194,7 @@ public class PlayerMecha : MonoBehaviour
         if (recarga) // Solo se produce si recarga esta activo (esta recargando)
         {
             // Si el numero es entero y esta recargando, suena la recarga
-            audioManager.SelectAudio(2, 0.30f);
+            audioManager.SelectAudio(2, 0.20f);
         }
     }
 
@@ -263,7 +263,7 @@ public class PlayerMecha : MonoBehaviour
             // Hacer logica para las bolas de acido del monstruo
             recover = false;
             // Le resta vida al jugador desde el manager de personajes
-            statsPlayer.setVida(statsPlayer.getVida() - 35.5f);
+            statsPlayer.setVida(statsPlayer.getVida() - 25.5f);
             sangre.Play();
             barVida.value = statsPlayer.getVida(); // Se actualiza la barra de vida
         }
@@ -294,7 +294,7 @@ public class PlayerMecha : MonoBehaviour
             // Si toca o colisona con una bola de acido, le baja vida
             recover = false;
             // Le resta vida al jugador desde el manager de personajes
-            statsPlayer.setVida(statsPlayer.getVida() - 25f);
+            statsPlayer.setVida(statsPlayer.getVida() - 27f);
             sangre.Play();
             barVida.value = statsPlayer.getVida(); // Se actualiza la barra de vida
         }
@@ -401,7 +401,7 @@ public class PlayerMecha : MonoBehaviour
             }
             barMunicion.value = (int)statsPlayer.getMunicion();
             municion.text = (int)statsPlayer.getMunicion() + " / 12";
-            audioManager.SelectAudio(1, 0.4f);
+            audioManager.SelectAudio(1, 0.25f);
         }
         else if(Input.GetButtonDown("Fire1") && !puedeDisparar)
         {

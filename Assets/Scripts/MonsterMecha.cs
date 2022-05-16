@@ -58,10 +58,7 @@ public class MonsterMecha : MonoBehaviour
             }
 
             //**// Tiempo de espera para que el jefe comience a lanzar proyectiles
-            if(cooldownFase2 <= 14)
-                cooldownFase2 += Time.deltaTime;
-
-            if(!fase2 && cooldownFase2 >= 13f)
+            if(!fase2 && monstStats.getVida() <= 700)
                 fase2 = true;
             //**//
 
@@ -98,16 +95,16 @@ public class MonsterMecha : MonoBehaviour
         if (fase2)
         {
             // Si no esta demaciado cerca, el enemigo persigue al player
-            transform.Translate(dPlayer * Time.deltaTime * monstStats.getSpeed());
+            transform.Translate(dPlayer * Time.deltaTime * (monstStats.getSpeed() - 0.25f));
             animator.SetBool(IS_RUNNING, true);
-            //disparar = false;
+            disparar = true;
         }
         else
         {
             // Si esta lo suficioentemente serca, se detiene y dispara
-            transform.Translate(dPlayer * Time.deltaTime * (monstStats.getSpeed() - 0.3f));
+            transform.Translate(dPlayer * Time.deltaTime * (monstStats.getSpeed() - 0.1f));
             animator.SetBool(IS_RUNNING, true);
-            disparar = true;
+            //disparar = true;
             // Sonido de disparo
 
         }
@@ -155,7 +152,7 @@ public class MonsterMecha : MonoBehaviour
     {
         // Retorna un true o false si esta cerca del jugador o no
         //Debug.DrawRay(transform.position, dPlayer, Color.red);
-        if (Physics2D.Raycast(this.transform.position, dPlayer, 15f, enemyMask))
+        if (Physics2D.Raycast(this.transform.position, dPlayer, 25f, enemyMask))
         {
             perseguir = true; // Vio al jugador
             //expandirCamara = true;

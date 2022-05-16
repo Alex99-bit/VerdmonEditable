@@ -171,7 +171,7 @@ public class FollowPlayer : MonoBehaviour
             {
                 Instantiate(bullet, canon.transform);
                 humo.Play();
-                SelectAudio(0, 0.4f);
+                SelectAudio(0, 0.25f);
             }
         } 
     }

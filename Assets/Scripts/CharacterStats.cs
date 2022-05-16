@@ -37,7 +37,7 @@ public class CharacterStats : MonoBehaviour
                 jumpForce = 3f;
                 break;
             case "Monster":
-                vida = 1000;
+                vida = 1200;
                 golpe = 35;
                 powerUp = 0;
                 municion = 30;
@@ -79,7 +79,7 @@ public class CharacterStats : MonoBehaviour
                 break;
             case 3:
                 // Afecta la fuerza de salto
-                jumpForce = 12.7f;
+                jumpForce = 13.7f;
                 break;
         }
     }
