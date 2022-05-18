@@ -7,11 +7,11 @@ public class GameManager : MonoBehaviour
 {
     public GameState currentGameState;
     public static GameManager instance;
+    static int score;
     PlayerMecha playerControl;
     EnemyMecha enemyControl;
     public GameObject pantallaInicio, pausa, gameOver, creditos;
-    static bool boss;
-    [SerializeField]Text scoreGameOver, scorePlayer;
+    [SerializeField] Text scoreGameOver, scorePlayer, gameOverText;
 
     private void Awake()
     {
@@ -19,7 +19,6 @@ public class GameManager : MonoBehaviour
         {
             instance = this;
         }
-        boss = false; // Bool que define si activar o no al boss
     }
 
     private void Start()
@@ -55,11 +54,6 @@ public class GameManager : MonoBehaviour
         {
             Invoke("GameOver", 0.5f);
             playerControl.SetIsAlive(true);
-        }
-
-        if (boss)
-        {
-
         }
     }
 
@@ -114,14 +108,9 @@ public class GameManager : MonoBehaviour
         SetGameState(GameState.creditos);
     }
 
-    public bool GetBoss()
+    public void SetScore(int setScore)
     {
-        return boss;
-    }
-
-    public void SetBoss(bool finalBoss)
-    {
-        boss = finalBoss;
+        score = setScore;
     }
 
     //* ******NOTA: Checar bien el game manager que de pronto vale madre****** *//
@@ -160,12 +149,22 @@ public class GameManager : MonoBehaviour
             gameOver.SetActive(true);
             scoreGameOver = GameObject.FindGameObjectWithTag("GOScore").GetComponent<Text>();
             scorePlayer = GameObject.FindGameObjectWithTag("Score").GetComponent<Text>();
+            gameOverText = GameObject.FindGameObjectWithTag("GOText").GetComponent<Text>();
+            gameOverText.text = "GAME OVER";
             scoreGameOver.text = scorePlayer.text;
         }
         else if(newGameState == GameState.victory)
         {
             // Pantalla de victoria
-            Time.timeScale = 0;
+            //Time.timeScale = 0;
+            
+            gameOver.SetActive(true);
+            scoreGameOver = GameObject.FindGameObjectWithTag("GOScore").GetComponent<Text>();
+            scorePlayer = GameObject.FindGameObjectWithTag("Score").GetComponent<Text>();
+            gameOverText = GameObject.FindGameObjectWithTag("GOText").GetComponent<Text>();
+            gameOverText.text = "VICTORY";
+            score *= 5;
+            scoreGameOver.text = "Score: " + score;
         }
         else if(newGameState == GameState.creditos)
         {

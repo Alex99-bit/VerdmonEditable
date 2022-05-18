@@ -455,6 +455,14 @@ PrefabInstance:
       propertyPath: m_Text
       value: "Dise\xF1ador auxiliar:\nYasumoto Kubota"
       objectReference: {fileID: 0}
+    - target: {fileID: 1155483849, guid: 291eb088cee05764da7d6eaf4ab400cb, type: 3}
+      propertyPath: m_TagString
+      value: GOText
+      objectReference: {fileID: 0}
+    - target: {fileID: 1183891612, guid: 291eb088cee05764da7d6eaf4ab400cb, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1263290892, guid: 291eb088cee05764da7d6eaf4ab400cb, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 

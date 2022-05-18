@@ -17,7 +17,6 @@ public class MonsterMecha : MonoBehaviour
     public ParticleSystem sangre;
     public Slider barVida;
     bool fase2;
-    float cooldownFase2;
 
     const string IS_ALIVE = "isAlive", IS_RUNNING = "isRunning";
 
@@ -33,7 +32,6 @@ public class MonsterMecha : MonoBehaviour
         perseguir = false;
         fase2 = false;
         disparar = false;
-        cooldownFase2 = 0;
     }
 
     // Update is called once per frame
@@ -43,7 +41,6 @@ public class MonsterMecha : MonoBehaviour
         if (GameManager.instance.currentGameState == GameState.inGame)
         {
             // Sigue la posision del player
-
             Debug.DrawRay(this.transform.position, Vector2.down * 2f, Color.red);
             Debug.DrawRay(pies.transform.position, Vector2.left * 1f, Color.red);
             dPlayer = posPlayer.transform.position - this.transform.position;
@@ -68,8 +65,7 @@ public class MonsterMecha : MonoBehaviour
                 animator.SetBool(IS_ALIVE, false);
                 rigidEnemy.gravityScale = 0.5f;
                 Destroy(this.gameObject, 0.5f);
-
-                GameManager.instance.SetGameState(GameState.gameOver);
+                GameManager.instance.currentGameState = GameState.victory;
             }
         }
         else if (GameManager.instance.currentGameState == GameState.inicio)
@@ -170,7 +166,7 @@ public class MonsterMecha : MonoBehaviour
         if (collision.gameObject.CompareTag("BulletPlayer"))
         {
             // Se le resta vida en caso de que reciba un disparo
-            monstStats.setVida(monstStats.getVida() - 15f);
+            monstStats.setVida(monstStats.getVida() - 500f); //15
             sangre.Play();
             barVida.value = monstStats.getVida();
         }

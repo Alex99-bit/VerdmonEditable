@@ -48,6 +48,8 @@ public class EnemyMecha : MonoBehaviour
                 scorePlayer.text = "Score: " + score;
 
             }
+
+            GameManager.instance.SetScore(score);
         }
         else if(GameManager.instance.currentGameState == GameState.inicio)
         {
