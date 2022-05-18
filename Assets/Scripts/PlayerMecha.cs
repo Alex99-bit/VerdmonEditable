@@ -253,7 +253,7 @@ public class PlayerMecha : MonoBehaviour
         if (collision.gameObject.CompareTag("BulletEnemy")){
             recover = false;
             // Le resta vida al jugador desde el manager de personajes
-            statsPlayer.setVida(statsPlayer.getVida() - 8.5f);
+            statsPlayer.setVida(statsPlayer.getVida() - 7.5f); // 8
             sangre.Play();
             barVida.value = statsPlayer.getVida(); // Se actualiza la barra de vida
         }

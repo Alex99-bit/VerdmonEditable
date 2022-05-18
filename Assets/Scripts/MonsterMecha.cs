@@ -166,7 +166,7 @@ public class MonsterMecha : MonoBehaviour
         if (collision.gameObject.CompareTag("BulletPlayer"))
         {
             // Se le resta vida en caso de que reciba un disparo
-            monstStats.setVida(monstStats.getVida() - 500f); //15
+            monstStats.setVida(monstStats.getVida() - 15f); //15
             sangre.Play();
             barVida.value = monstStats.getVida();
         }
