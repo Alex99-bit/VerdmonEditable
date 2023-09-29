@@ -82,15 +82,16 @@ public class PlayerMecha : MonoBehaviour
                 Invoke("OcultarMensaje", 6f);
             }
 
-            if (recover && statsPlayer.getVida() <= 72)
+            int limiteVida = 80;
+            if (recover && statsPlayer.getVida() <= limiteVida)
             {
                 // Recarga la vida poco a poco en caso de no recivir daño
                 statsPlayer.setVida(statsPlayer.getVida() + 0.5f);
                 barVida.value = statsPlayer.getVida();
 
-                if(statsPlayer.getVida() > 70)
+                if(statsPlayer.getVida() > limiteVida)
                 {
-                    statsPlayer.setVida(70);
+                    statsPlayer.setVida(limiteVida);
                     barVida.value = statsPlayer.getVida();
                 }
             }
@@ -106,7 +107,7 @@ public class PlayerMecha : MonoBehaviour
             {
                 // Genera un tiempo de espera para recargar la vida en caso de que no se reciva daño
                 cooldown += Time.deltaTime;
-                if (cooldown > 6f) // Cooldown de n segundos
+                if (cooldown > 4.5f) // Cooldown de n segundos
                 {
                     recover = true;
                     cooldown = 0;
