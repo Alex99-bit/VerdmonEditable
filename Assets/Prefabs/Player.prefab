@@ -249,9 +249,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: -1716467927
+  m_SortingLayer: 4
+  m_SortingOrder: 2
   m_Sprite: {fileID: 5070877846835740104, guid: fa3223f39f003a041ae0fcf2b6c6b235, type: 3}
   m_Color: {r: 0.9245283, g: 0.9245283, b: 0.9245283, a: 1}
   m_FlipX: 0
@@ -336,6 +336,7 @@ MonoBehaviour:
   salto: {fileID: 0}
   bullet: {fileID: 6969758016602920335, guid: 708936158ea19e84d84eda1ab0f984d6, type: 3}
   mensaje: {fileID: 0}
+  bossbar: {fileID: 0}
   playerMask:
     serializedVersion: 2
     m_Bits: 64
@@ -347,6 +348,7 @@ MonoBehaviour:
   barMunicion: {fileID: 0}
   startPosition: {fileID: 0}
   municion: {fileID: 0}
+  botellas: {fileID: 0}
 --- !u!81 &521095555
 AudioListener:
   m_ObjectHideFlags: 0

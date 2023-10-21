@@ -46,7 +46,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1618548977
 Transform:
   m_ObjectHideFlags: 0
@@ -36588,8 +36588,8 @@ TilemapRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1990918895
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0.0032149553, y: 0.0022321343, z: 0}
@@ -37371,10 +37371,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7054294755358365279}
     m_Modifications:
-    - target: {fileID: 1301966674, guid: 65e408c4e89509c4eb409e988a439850, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2093944101590348332, guid: 65e408c4e89509c4eb409e988a439850, type: 3}
       propertyPath: m_Name
       value: Fondo
