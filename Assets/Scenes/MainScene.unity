@@ -170,10 +170,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 682846566}
     - target: {fileID: 2034632339, guid: 072d0e95a7c5f634797d0e09efcc689c, type: 3}
-      propertyPath: vidaMonster
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 2034632339, guid: 072d0e95a7c5f634797d0e09efcc689c, type: 3}
       propertyPath: startPosition
       value: 
       objectReference: {fileID: 577015866}
