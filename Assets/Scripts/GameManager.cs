@@ -157,7 +157,7 @@ public class GameManager : MonoBehaviour
         {
             // Pantalla de victoria
             //Time.timeScale = 0;
-            
+            //GameObject boss = 
             gameOver.SetActive(true);
             scoreGameOver = GameObject.FindGameObjectWithTag("GOScore").GetComponent<Text>();
             scorePlayer = GameObject.FindGameObjectWithTag("Score").GetComponent<Text>();
