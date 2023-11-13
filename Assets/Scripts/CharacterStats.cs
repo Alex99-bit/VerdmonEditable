@@ -70,7 +70,7 @@ public class CharacterStats : MonoBehaviour
                 jumpForce = 7f;
                 break;
             case 1:
-                // Afecta al ataque con el puño
+                // Afecta al ataque con el puï¿½o
                 //golpe *= 2;
                 break;
             case 2:
@@ -85,7 +85,7 @@ public class CharacterStats : MonoBehaviour
     }
 
 
-    // Metodos de extracción y manipulación de datos internos (get & set)
+    // Metodos de extracciï¿½n y manipulaciï¿½n de datos internos (get & set)
 
     public void setVida(float vida)
     {

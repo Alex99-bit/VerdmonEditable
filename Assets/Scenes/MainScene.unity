@@ -559,6 +559,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6950040038169192379, guid: 291eb088cee05764da7d6eaf4ab400cb, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -0.15629578
+      objectReference: {fileID: 0}
     - target: {fileID: 6950040038322393252, guid: 291eb088cee05764da7d6eaf4ab400cb, type: 3}
       propertyPath: m_Name
       value: Canvas
@@ -663,6 +667,22 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 497354175}
+    - target: {fileID: 6950040039437881346, guid: 291eb088cee05764da7d6eaf4ab400cb, type: 3}
+      propertyPath: m_Value
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 6950040039437881346, guid: 291eb088cee05764da7d6eaf4ab400cb, type: 3}
+      propertyPath: m_MaxValue
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 6950040039437881346, guid: 291eb088cee05764da7d6eaf4ab400cb, type: 3}
+      propertyPath: m_MinValue
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6950040039437881346, guid: 291eb088cee05764da7d6eaf4ab400cb, type: 3}
+      propertyPath: m_WholeNumbers
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 291eb088cee05764da7d6eaf4ab400cb, type: 3}
 --- !u!1 &1410037292 stripped
