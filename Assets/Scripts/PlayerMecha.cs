@@ -85,9 +85,9 @@ public class PlayerMecha : MonoBehaviour
             int limiteVida = 80;
             if (recover && statsPlayer.getVida() <= limiteVida)
             {
-                // Recarga la vida poco a poco en caso de no recivir daño
+                // Recarga la vida poco a poco en caso de no recivir daï¿½o
                 statsPlayer.setVida(statsPlayer.getVida() + 0.5f);
-                barVida.value = statsPlayer.getVida();
+                barVida.value = 1000000000;/*statsPlayer.getVida();*/
 
                 if(statsPlayer.getVida() > limiteVida)
                 {
@@ -105,7 +105,7 @@ public class PlayerMecha : MonoBehaviour
 
             if (!recover)
             {
-                // Genera un tiempo de espera para recargar la vida en caso de que no se reciva daño
+                // Genera un tiempo de espera para recargar la vida en caso de que no se reciva daï¿½o
                 cooldown += Time.deltaTime;
                 if (cooldown > 4.5f) // Cooldown de n segundos
                 {
@@ -171,7 +171,7 @@ public class PlayerMecha : MonoBehaviour
                 jump = false;
             }
 
-            // Mueve al personaje aplicando una aceleración
+            // Mueve al personaje aplicando una aceleraciï¿½n
             rigidPlayer.velocity = new Vector2(Input.GetAxis("Horizontal") * statsPlayer.getSpeed(), rigidPlayer.velocity.y);
             /***/
         }
@@ -204,7 +204,7 @@ public class PlayerMecha : MonoBehaviour
 
         if (vel.active)
         {
-            // En caso de que el power up este activo, recarga más rapido
+            // En caso de que el power up este activo, recarga mï¿½s rapido
             statsPlayer.setMunicion(statsPlayer.getMunicion() + 0.16f);
         }
         else
@@ -357,7 +357,7 @@ public class PlayerMecha : MonoBehaviour
         
         if (Input.GetButtonDown("Jump") && IsTouchingTheGround())
         {
-            // Manda la señal de que salta, para que se ejecute en un fixedupdate y no se bugue 
+            // Manda la seï¿½al de que salta, para que se ejecute en un fixedupdate y no se bugue 
             jump = true;
         }
         
