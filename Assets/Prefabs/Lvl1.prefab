@@ -37419,6 +37419,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fondo
       objectReference: {fileID: 0}
+    - target: {fileID: 2638223181905057643, guid: f15d72b4815eb144d8ad11ca358bcaf4, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f15d72b4815eb144d8ad11ca358bcaf4, type: 3}
 --- !u!4 &1022476773 stripped

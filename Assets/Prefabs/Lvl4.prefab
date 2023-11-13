@@ -148147,6 +148147,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fondo
       objectReference: {fileID: 0}
+    - target: {fileID: 2093944101590348332, guid: 65e408c4e89509c4eb409e988a439850, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2093944101590348333, guid: 65e408c4e89509c4eb409e988a439850, type: 3}
       propertyPath: m_RootOrder
       value: 0
