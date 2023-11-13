@@ -87,7 +87,7 @@ public class PlayerMecha : MonoBehaviour
             {
                 // Recarga la vida poco a poco en caso de no recivir da�o
                 statsPlayer.setVida(statsPlayer.getVida() + 0.5f);
-                barVida.value = 1000000000;/*statsPlayer.getVida();*/
+                barVida.value = statsPlayer.getVida();
 
                 if(statsPlayer.getVida() > limiteVida)
                 {
