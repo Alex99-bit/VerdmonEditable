@@ -65,7 +65,8 @@ public class MonsterMecha : MonoBehaviour
                 animator.SetBool(IS_ALIVE, false);
                 rigidEnemy.gravityScale = 0.5f;
                 Destroy(this.gameObject, 0.5f);
-                GameManager.instance.currentGameState = GameState.victory;
+                GameManager.instance.SetGameState(GameState.victory);
+                //GameManager.instance.currentGameState = GameState.victory;
             }
         }
         else if (GameManager.instance.currentGameState == GameState.inicio)
