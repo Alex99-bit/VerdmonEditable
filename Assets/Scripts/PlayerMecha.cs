@@ -17,13 +17,15 @@ public class PlayerMecha : MonoBehaviour
     public Transform startPosition;
     bool recover, recarga, powerUp, jump;//**//
     float cooldown ,cooldownUP;
-    static bool puedeDisparar, isAlive, muestraMensaje;
+    static bool puedeDisparar, isAlive, muestraMensaje, isCrouched;
     public Text municion, botellas; 
     AudioManager audioManager;
     static int points;
 
     // Estados del jugador
     const string IS_ON_THE_GROUND = "isOnTheGround", IS_ALIVE = "isAlive", IS_RUNNING = "isRunning", IS_SHOOTING = "isShooting";
+
+    public Collider2D mainCollider, crouchCollider;
 
     // Start is called before the first frame update
     void Start()
@@ -48,6 +50,9 @@ public class PlayerMecha : MonoBehaviour
         //**//
         jump = false;
         audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
+        isCrouched = false;
+        mainCollider.isTrigger = false;
+        crouchCollider.isTrigger = true;
     }
 
     // Update is called once per frame
@@ -147,6 +152,22 @@ public class PlayerMecha : MonoBehaviour
                 vel.SetActive(false);
                 salto.SetActive(false);
                 print("Si se mato perro");
+            }
+
+            //Agacharse
+            if(Input.GetKeyDown(KeyCode.LeftControl) && !isCrouched)
+            {
+                mainCollider.isTrigger = true;
+                crouchCollider.isTrigger = false;
+                Debug.Log("Agacharse");
+                isCrouched = true;
+            }
+            else if (Input.GetKeyDown(KeyCode.LeftControl) && isCrouched)
+            {
+                mainCollider.isTrigger = false;
+                crouchCollider.isTrigger = true;
+                Debug.Log("Levantarse");
+                isCrouched = false;
             }
         }
         else if(GameManager.instance.currentGameState == GameState.inicio)
