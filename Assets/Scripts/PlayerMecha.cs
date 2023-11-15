@@ -51,8 +51,8 @@ public class PlayerMecha : MonoBehaviour
         jump = false;
         audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
         isCrouched = false;
-        mainCollider.isTrigger = false;
-        crouchCollider.isTrigger = true;
+        //mainCollider.gameObject.SetActive(true);
+        //crouchCollider.gameObject.SetActive(false);
     }
 
     // Update is called once per frame
@@ -60,10 +60,12 @@ public class PlayerMecha : MonoBehaviour
     {
         if (GameManager.instance.currentGameState == GameState.inGame)
         {
-
             Shooting();
             Movement();
-            Jump();
+            if (!isCrouched)
+            {
+                Jump();
+            }           
 
             Debug.DrawRay(this.transform.position, Vector2.down * 1.95f, Color.red);
             Debug.DrawRay(this.transform.position, Vector2.left * 0.6f, Color.red);
@@ -157,15 +159,15 @@ public class PlayerMecha : MonoBehaviour
             //Agacharse
             if(Input.GetKeyDown(KeyCode.LeftControl) && !isCrouched)
             {
-                mainCollider.isTrigger = true;
-                crouchCollider.isTrigger = false;
+                //mainCollider.gameObject.SetActive(false);
+                //crouchCollider.gameObject.SetActive(true);
                 Debug.Log("Agacharse");
                 isCrouched = true;
             }
             else if (Input.GetKeyDown(KeyCode.LeftControl) && isCrouched)
             {
-                mainCollider.isTrigger = false;
-                crouchCollider.isTrigger = true;
+                //mainCollider.gameObject.SetActive(true);
+                //crouchCollider.gameObject.SetActive(false);
                 Debug.Log("Levantarse");
                 isCrouched = false;
             }
@@ -193,7 +195,11 @@ public class PlayerMecha : MonoBehaviour
             }
 
             // Mueve al personaje aplicando una aceleraci�n
-            rigidPlayer.velocity = new Vector2(Input.GetAxis("Horizontal") * statsPlayer.getSpeed(), rigidPlayer.velocity.y);
+            if (!isCrouched)
+            {
+                rigidPlayer.velocity = new Vector2(Input.GetAxis("Horizontal") * statsPlayer.getSpeed(), rigidPlayer.velocity.y);
+            }
+            
             /***/
         }
 
@@ -374,14 +380,11 @@ public class PlayerMecha : MonoBehaviour
     void Jump()
     {
         // Metodo para saltar
-        
-        
         if (Input.GetButtonDown("Jump") && IsTouchingTheGround())
         {
             // Manda la se�al de que salta, para que se ejecute en un fixedupdate y no se bugue 
             jump = true;
         }
-        
 
         animator.SetBool(IS_ON_THE_GROUND, IsTouchingTheGround());
     }
@@ -394,7 +397,7 @@ public class PlayerMecha : MonoBehaviour
             GetComponent<SpriteRenderer>().flipX = true;
             animator.SetBool(IS_RUNNING, NoTocaPared());
         }
-        else if(Input.GetAxis("Horizontal") > 0)
+        else if (Input.GetAxis("Horizontal") > 0)
         {
             GetComponent<SpriteRenderer>().flipX = false;
             animator.SetBool(IS_RUNNING, NoTocaPared());
