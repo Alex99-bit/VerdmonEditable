@@ -350,6 +350,8 @@ MonoBehaviour:
   startPosition: {fileID: 0}
   municion: {fileID: 0}
   botellas: {fileID: 0}
+  mainCollider: {fileID: 0}
+  crouchCollider: {fileID: 0}
 --- !u!81 &521095555
 AudioListener:
   m_ObjectHideFlags: 0
@@ -408,6 +410,14 @@ PrefabInstance:
     - target: {fileID: 8106065271035536906, guid: 097f784c032c8bb45954342bb4c150dd, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8106065271035536907, guid: 097f784c032c8bb45954342bb4c150dd, type: 3}
+      propertyPath: m_SortingLayer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8106065271035536907, guid: 097f784c032c8bb45954342bb4c150dd, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 333026619
       objectReference: {fileID: 0}
     - target: {fileID: 8106065271035536917, guid: 097f784c032c8bb45954342bb4c150dd, type: 3}
       propertyPath: m_Name
@@ -483,6 +493,14 @@ PrefabInstance:
     - target: {fileID: 3213346446324379998, guid: e433a0e06f6c66c44bfdafdf4433b1f9, type: 3}
       propertyPath: EmissionModule.rateOverTime.scalar
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3213346446324379999, guid: e433a0e06f6c66c44bfdafdf4433b1f9, type: 3}
+      propertyPath: m_SortingLayer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3213346446324379999, guid: e433a0e06f6c66c44bfdafdf4433b1f9, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 333026619
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e433a0e06f6c66c44bfdafdf4433b1f9, type: 3}
@@ -573,6 +591,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Revive
       objectReference: {fileID: 0}
+    - target: {fileID: 5583511853092900628, guid: bc2412eeba5e5054cbc99054e0d75613, type: 3}
+      propertyPath: m_SortingLayer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5583511853092900628, guid: bc2412eeba5e5054cbc99054e0d75613, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 333026619
+      objectReference: {fileID: 0}
     - target: {fileID: 5583511853092900629, guid: bc2412eeba5e5054cbc99054e0d75613, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -636,6 +662,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2660479820316452520}
     m_Modifications:
+    - target: {fileID: 6424672739407734866, guid: 71b6de758dc370e4fa94ce20cac4d949, type: 3}
+      propertyPath: m_SortingLayer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6424672739407734866, guid: 71b6de758dc370e4fa94ce20cac4d949, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 333026619
+      objectReference: {fileID: 0}
     - target: {fileID: 6424672739407734868, guid: 71b6de758dc370e4fa94ce20cac4d949, type: 3}
       propertyPath: m_Name
       value: Fogonazo

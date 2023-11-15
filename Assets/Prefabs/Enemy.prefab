@@ -139,7 +139,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1716467927
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: -1
   m_Sprite: {fileID: 8183079251017361569, guid: fa3223f39f003a041ae0fcf2b6c6b235, type: 3}
   m_Color: {r: 0.8207547, g: 0.8207547, b: 0.8207547, a: 1}
@@ -400,6 +400,14 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3213346446324379999, guid: e433a0e06f6c66c44bfdafdf4433b1f9, type: 3}
+      propertyPath: m_SortingLayer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3213346446324379999, guid: e433a0e06f6c66c44bfdafdf4433b1f9, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 333026619
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e433a0e06f6c66c44bfdafdf4433b1f9, type: 3}
 --- !u!4 &2981422256067516071 stripped
@@ -419,6 +427,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2981422255030411580}
     m_Modifications:
+    - target: {fileID: 6424672739407734866, guid: 71b6de758dc370e4fa94ce20cac4d949, type: 3}
+      propertyPath: m_SortingLayer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6424672739407734866, guid: 71b6de758dc370e4fa94ce20cac4d949, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 333026619
+      objectReference: {fileID: 0}
     - target: {fileID: 6424672739407734868, guid: 71b6de758dc370e4fa94ce20cac4d949, type: 3}
       propertyPath: m_Name
       value: Fogonazo

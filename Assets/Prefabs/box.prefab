@@ -181,6 +181,14 @@ PrefabInstance:
       propertyPath: InitialModule.startLifetime.minMaxState
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 7617150839470171952, guid: a120dc2678933fb468383bfe7fa9fb23, type: 3}
+      propertyPath: m_SortingLayer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7617150839470171952, guid: a120dc2678933fb468383bfe7fa9fb23, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 333026619
+      objectReference: {fileID: 0}
     - target: {fileID: 7617150839470171953, guid: a120dc2678933fb468383bfe7fa9fb23, type: 3}
       propertyPath: m_RootOrder
       value: 0

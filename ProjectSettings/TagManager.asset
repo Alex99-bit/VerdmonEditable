@@ -57,11 +57,11 @@ TagManager:
   - 
   - 
   m_SortingLayers:
-  - name: Default
-    uniqueID: 0
-    locked: 0
   - name: Fondo
     uniqueID: 3800656471
+    locked: 0
+  - name: Default
+    uniqueID: 0
     locked: 0
   - name: Floor
     uniqueID: 1990918895
