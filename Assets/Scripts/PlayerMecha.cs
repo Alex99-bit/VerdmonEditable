@@ -51,8 +51,8 @@ public class PlayerMecha : MonoBehaviour
         jump = false;
         audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
         isCrouched = false;
-        //mainCollider.gameObject.SetActive(true);
-        //crouchCollider.gameObject.SetActive(false);
+        mainCollider.enabled = true;
+        crouchCollider.enabled = false;
     }
 
     // Update is called once per frame
@@ -157,19 +157,21 @@ public class PlayerMecha : MonoBehaviour
             }
 
             //Agacharse
-            if(Input.GetKeyDown(KeyCode.LeftControl) && !isCrouched)
+            if(Input.GetKeyDown(KeyCode.LeftControl) && !isCrouched && IsTouchingTheGround())
             {
-                //mainCollider.gameObject.SetActive(false);
-                //crouchCollider.gameObject.SetActive(true);
+                mainCollider.enabled = false;
+                crouchCollider.enabled = true;
                 Debug.Log("Agacharse");
                 isCrouched = true;
+                animator.SetBool("IsCrouched", true);
             }
             else if (Input.GetKeyDown(KeyCode.LeftControl) && isCrouched)
             {
-                //mainCollider.gameObject.SetActive(true);
-                //crouchCollider.gameObject.SetActive(false);
+                mainCollider.enabled = true;
+                crouchCollider.enabled = false;
                 Debug.Log("Levantarse");
                 isCrouched = false;
+                animator.SetBool("IsCrouched", false);
             }
         }
         else if(GameManager.instance.currentGameState == GameState.inicio)
