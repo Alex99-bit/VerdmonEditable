@@ -493,6 +493,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 875079184, guid: 291eb088cee05764da7d6eaf4ab400cb, type: 3}
+      propertyPath: m_Text
+      value: "A & D = Movimiento\nShift (Izquierdo) = Agacharse\nR = Recarga\nEspacio
+        = Salto \nEspacio x2 = Doble Salto\nClick Izq o K = Disparar"
+      objectReference: {fileID: 0}
     - target: {fileID: 928760740, guid: 291eb088cee05764da7d6eaf4ab400cb, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 178
@@ -577,6 +582,22 @@ PrefabInstance:
       propertyPath: m_Text
       value: "Dise\xF1ador y arte:\nCarlos Hern\xE1ndez \"Charlo\""
       objectReference: {fileID: 0}
+    - target: {fileID: 2141962913, guid: 291eb088cee05764da7d6eaf4ab400cb, type: 3}
+      propertyPath: m_Text
+      value: 'A & D = Movimiento
+
+        Shift (Izquierdo) = Agacharse
+
+        R
+        = Recarga
+
+        Espacio = Salto
+
+        Espacio x2 = Soble salto
+
+        Click
+        Izq o K = Disparar'
+      objectReference: {fileID: 0}
     - target: {fileID: 98684991789377428, guid: 291eb088cee05764da7d6eaf4ab400cb, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -599,7 +620,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 796257871023152625, guid: 291eb088cee05764da7d6eaf4ab400cb, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 796257871282252127, guid: 291eb088cee05764da7d6eaf4ab400cb, type: 3}
       propertyPath: m_MaxValue
@@ -623,15 +644,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6950040038179669186, guid: 291eb088cee05764da7d6eaf4ab400cb, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6950040038179669186, guid: 291eb088cee05764da7d6eaf4ab400cb, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6950040038179669186, guid: 291eb088cee05764da7d6eaf4ab400cb, type: 3}
       propertyPath: m_AnchorMin.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6950040038322393252, guid: 291eb088cee05764da7d6eaf4ab400cb, type: 3}
       propertyPath: m_Name

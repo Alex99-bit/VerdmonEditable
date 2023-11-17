@@ -157,7 +157,7 @@ public class PlayerMecha : MonoBehaviour
             }
 
             //Agacharse
-            if(Input.GetKeyDown(KeyCode.LeftControl) && !isCrouched && IsTouchingTheGround())
+            if(Input.GetKeyDown(KeyCode.LeftShift) && !isCrouched && IsTouchingTheGround())
             {
                 mainCollider.enabled = false;
                 crouchCollider.enabled = true;
@@ -165,7 +165,7 @@ public class PlayerMecha : MonoBehaviour
                 isCrouched = true;
                 animator.SetBool("IsCrouched", true);
             }
-            else if (Input.GetKeyDown(KeyCode.LeftControl) && isCrouched)
+            else if (Input.GetKeyDown(KeyCode.LeftShift) && isCrouched)
             {
                 mainCollider.enabled = true;
                 crouchCollider.enabled = false;
@@ -178,7 +178,7 @@ public class PlayerMecha : MonoBehaviour
         {
             // Reiniciar todo
             Revive();
-            MostrarMensaje("A & D = Movimiento\nR = Recarga\nEspacio = Salto\nEspacio x2 = Doble salto\nClick Izq o K = Disparar");
+            MostrarMensaje("A & D = Movimiento\nShift (Izquierdo) = Agacharse\nR = Recarga\nEspacio = Salto\nEspacio x2 = Doble salto\nClick Izq o K = Disparar");
         }
 
     }
